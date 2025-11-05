@@ -2,7 +2,7 @@
 title: "Start Here (Capital I)"
 date: "2025-11-05"
 excerpt: "The history"
-published: false
+published: true
 ---
 
 This is the first entry in a series that I will be publishing as I read [Capital by Karl Marx](https://hardcover.app/books/capital). The intent is to respond critically to the analysis introduced by Marx, and to apply it to the modern NZ context.
