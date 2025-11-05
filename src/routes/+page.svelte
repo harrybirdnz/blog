@@ -8,21 +8,32 @@
   <div class="space-y-8">
     {#each data.posts as post}
       <article class="border-b border-gray-300 pb-6">
-        <a href="/{post.slug}" class="group">
-          <h2
-            class="text-2xl font-semibold mb-2 group-hover:text-blue-600 transition-colors"
-          >
-            {post.title}
-          </h2>
-          <time class="text-sm text-gray-600 mb-2 block">{post.date}</time>
-          <p class="text-gray-700">
-            {post.excerpt}
-          </p>
-          <span
-            class="text-blue-600 text-sm mt-2 inline-block group-hover:underline"
-          >
-            Read more →
-          </span>
+        <a href="/{post.slug}" class="group flex gap-4">
+          <div class="flex-1">
+            <h2
+              class="text-2xl font-semibold mb-2 group-hover:text-blue-600 transition-colors"
+            >
+              {post.title}
+            </h2>
+            <time class="text-sm text-gray-600 mb-2 block">{post.date}</time>
+            <p class="text-gray-700">
+              {post.excerpt}
+            </p>
+            <span
+              class="text-blue-600 text-sm mt-2 inline-block group-hover:underline"
+            >
+              Read more →
+            </span>
+          </div>
+          {#if post.image}
+            <div class="flex-shrink-0 w-32 h-32">
+              <img
+                src={post.image}
+                alt={post.title}
+                class="w-full h-full object-cover rounded"
+              />
+            </div>
+          {/if}
         </a>
       </article>
     {/each}

@@ -1,6 +1,21 @@
 <script>
+  import { onMount } from "svelte";
+
   let { data } = $props();
   const Content = data.post.content;
+
+  onMount(() => {
+    // Make external links open in new tab
+    const article = document.querySelector("article");
+    const links = article?.querySelectorAll(".prose a");
+    links?.forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && (href.startsWith("http://") || href.startsWith("https://"))) {
+        link.setAttribute("target", "_blank");
+        link.setAttribute("rel", "noopener noreferrer");
+      }
+    });
+  });
 </script>
 
 <svelte:head>
@@ -93,5 +108,13 @@
   :global(.prose pre code) {
     background-color: transparent;
     padding: 0;
+  }
+
+  :global(.prose img) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    height: auto;
   }
 </style>
