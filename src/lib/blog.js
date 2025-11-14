@@ -21,7 +21,8 @@ function extractFirstImage(markdown) {
 export async function getPosts() {
   const postFiles = import.meta.glob("/src/posts/*.md", {
     eager: true,
-    as: "raw",
+    query: "?raw",
+    import: "default",
   });
   const postModules = import.meta.glob("/src/posts/*.md", { eager: true });
   const posts = [];
