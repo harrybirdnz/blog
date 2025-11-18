@@ -11,9 +11,9 @@ There is an immense amount of information in the world, far too much for any one
 
 > Side note, free market capitalists expect us to always act as a 'rational' 'informed' consumer, which is obviously ludicrous, no one can be perfectly informed about all purchasing decisions.
 
-I hypothesise that the way that this occurs in the modern era is through 'influencer' networks. Or more specifically, each of us slowly curates our own personal list of influencers who we trust to advise us in their subject of expertise.
+I hypothesise that the way that this occurs in the modern era is through 'influencer' networks. Or more specifically, ==each of us slowly curates our own personal list of influencers who we trust to advise us in their subject of expertise.== - *you don't really come back to this*
 
-I think the rise of the influencer is in response to several factors. Firstly, a growing distrust in mass media. Previously mainstream TV shows such as Fair Go might have influenced our purchases, or a health documentary might have provided healthly living advice. However a rise in corporate sponsorships, or more accurately a rise in public awareness of the fallibility of advice, has lead to the decline in this mass line of thought.
+I think the rise of the influencer is in response to several factors. Firstly, a growing distrust in mass media. Previously mainstream TV shows such as Fair Go might have influenced our purchases, or a health documentary might have provided healthly living advice. ==However a rise in corporate sponsorships, or more accurately a rise in public awareness of the fallibility of advice, has lead to the decline in this mass line of thought.== - *a bit yuck*
 
 In addition, with the current advent of influencer based life advice, it is incredibly easy to find advice that fits into the consumers current worldview. The relationship between influencer and consumer is incredibly fickle, and so we selectively pick and choose what to listen to and what to ignore based on our preexisting notions of the world.
 
@@ -28,3 +28,4 @@ This brings the analysis to the personal relationship. In many ways, this knowle
 This takes me back to my last post, where I recommended a few sources of information I have found valuable. In blogging here, I am simply extending/distilling the ideas of the humans I have interacted with in the past. Therefore by crediting them, I allow anyone silly enough to read this far to go and learn more, if it interests them.
 
 So to end I will link [Nathan Laundry's Substack](https://nathanlaundry.substack.com/) again, which I think is the biggest influence in me actually writing this, and also a demonstration of the power of community in his Digital Cohort which is aiming to quit the attention economy.
+
