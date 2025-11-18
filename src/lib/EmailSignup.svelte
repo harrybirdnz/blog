@@ -1,4 +1,6 @@
 <script>
+  import posthog from "posthog-js";
+
   export let audienceId = "165a12f9-c83f-4c99-9a93-fbd89e9fdac8";
   export let title = "Subscribe to my newsletter";
   export let buttonText = "Subscribe";
@@ -13,9 +15,14 @@
     loading = true;
     message = "";
     messageType = "";
+
+    // Get PostHog session ID
+    const sessionId = posthog.get_session_id();
+
     console.log("Submitting:", {
       email,
       audienceId,
+      sessionId,
     });
     try {
       const response = await fetch("/api/subscribe", {
@@ -26,6 +33,7 @@
         body: JSON.stringify({
           email,
           audienceId,
+          sessionId,
         }),
       });
 
