@@ -13,14 +13,28 @@ export async function sendTestEmail() {
 }
 
 export async function addToAudience(email, audienceId) {
-  console.log("Adding to audience:", email, audienceId);
-  const response = await resend.contacts.create({
-    email,
-    unsubscribed: false,
-    audienceId,
-  });
-  console.log("Add to audience response:", response);
-  return response;
+  try {
+    console.log("Adding to audience:", email, audienceId);
+    let res = await resend.contacts.get({
+      email: email,
+    });
+    if (res.error === null && res.data) {
+      console.log("Contact already exists:", res);
+      throw new Error("This email is already subscribed");
+    }
+    console.log("Existing contact check:", res);
+    const response = await resend.contacts.create({
+      email,
+      unsubscribed: false,
+      audienceId,
+    });
+    console.log("Add to audience response:", response);
+    return response;
+  } catch (error) {
+    console.error("Error in addToAudience:", error);
+    // Re-throw with the original error message
+    throw error;
+  }
 }
 
 export async function sendThankYouEmail(toEmail) {

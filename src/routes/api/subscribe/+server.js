@@ -31,8 +31,8 @@ export async function POST({ request }) {
   } catch (error) {
     console.error("Failed to add contact to audience:", error);
 
-    // Handle specific Resend errors
-    if (error.message?.includes("already exists")) {
+    // Handle specific error messages
+    if (error.message?.includes("already subscribed")) {
       return json(
         {
           success: false,
