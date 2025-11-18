@@ -26,7 +26,15 @@ export async function POST({ request }) {
     }
 
     await addToAudience(email, audienceId);
+    console.log(
+      "Contact added successfully, waiting before sending thank you email..."
+    );
+
+    // Wait 1 second to avoid rate limit (Resend allows 2 requests per second)
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
     await sendThankYouEmail(email);
+    console.log("Thank you email process completed");
     return json({ success: true });
   } catch (error) {
     console.error("Failed to add contact to audience:", error);

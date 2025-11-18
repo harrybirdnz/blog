@@ -53,10 +53,19 @@ export async function addToAudience(email, audienceId) {
 }
 
 export async function sendThankYouEmail(toEmail) {
-  await resend.emails.send({
-    from: "notifications@harrybird.nz",
-    to: toEmail,
-    subject: "Thank You for Subscribing!",
-    html: "<p>Thank you for subscribing to my blog post notifications!</p>",
-  });
+  try {
+    console.log("Attempting to send thank you email to:", toEmail);
+    const result = await resend.emails.send({
+      from: "notifications@harrybird.nz",
+      to: toEmail,
+      subject: "Thank You for Subscribing!",
+      html: "<p>Thank you for subscribing to my blog post notifications!</p>",
+    });
+    console.log("Thank you email sent successfully:", result);
+    return result;
+  } catch (error) {
+    console.error("Failed to send thank you email:", error);
+    // Don't throw - we don't want to fail the subscription if the email fails
+    return null;
+  }
 }
