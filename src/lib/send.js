@@ -1,7 +1,11 @@
 import { Resend } from "resend";
 import { RESEND_API_KEY } from "$env/static/private";
+import { PostHog } from "posthog-node";
 
 const resend = new Resend(RESEND_API_KEY);
+const posthog = new PostHog("phc_G9D50T5R9NiLHXIOkfzp3GqB8YkOVdR554ad2xIkgQm", {
+  host: "https://eu.i.posthog.com",
+});
 
 export async function sendTestEmail() {
   await resend.emails.send({
@@ -28,6 +32,17 @@ export async function addToAudience(email, audienceId) {
       unsubscribed: false,
       audienceId,
     });
+
+    // Track new subscriber event in PostHog
+    posthog.capture({
+      distinctId: email,
+      event: "new_subscriber",
+      properties: {
+        email: email,
+        audienceId: audienceId,
+      },
+    });
+
     console.log("Add to audience response:", response);
     return response;
   } catch (error) {
