@@ -3,7 +3,7 @@ import { json } from "@sveltejs/kit";
 
 export async function POST({ request }) {
   try {
-    const { email, audienceId, sessionId } = await request.json();
+    const { email, audienceId } = await request.json();
     // Validate email
     if (!email || !email.includes("@")) {
       return json(
@@ -25,7 +25,7 @@ export async function POST({ request }) {
       );
     }
 
-    await addToAudience(email, audienceId, sessionId);
+    await addToAudience(email, audienceId);
     console.log(
       "Contact added successfully, waiting before sending thank you email..."
     );

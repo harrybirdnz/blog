@@ -16,13 +16,11 @@
     message = "";
     messageType = "";
 
-    // Get PostHog session ID
-    const sessionId = posthog.get_session_id();
+    const submittedEmail = email;
 
     console.log("Submitting:", {
-      email,
+      email: submittedEmail,
       audienceId,
-      sessionId,
     });
     try {
       const response = await fetch("/api/subscribe", {
@@ -31,15 +29,20 @@
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          email,
+          email: submittedEmail,
           audienceId,
-          sessionId,
         }),
       });
 
       const result = await response.json();
 
       if (result.success) {
+        // Track event in PostHog on client side (session ID included automatically)
+        posthog.capture("new_subscriber", {
+          email: submittedEmail,
+          audienceId: audienceId,
+        });
+
         message = "Successfully subscribed! Check your email for confirmation.";
         messageType = "success";
         // Reset form

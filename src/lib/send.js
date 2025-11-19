@@ -16,7 +16,7 @@ export async function sendTestEmail() {
   });
 }
 
-export async function addToAudience(email, audienceId, sessionId = null) {
+export async function addToAudience(email, audienceId) {
   try {
     console.log("Adding to audience:", email, audienceId);
     let res = await resend.contacts.get({
@@ -32,23 +32,6 @@ export async function addToAudience(email, audienceId, sessionId = null) {
       unsubscribed: false,
       audienceId,
     });
-
-    // Track new subscriber event in PostHog
-    const eventData = {
-      distinctId: email,
-      event: "new_subscriber",
-      properties: {
-        email: email,
-        audienceId: audienceId,
-      },
-    };
-
-    // Add session ID if provided
-    if (sessionId) {
-      eventData.properties.$session_id = sessionId;
-    }
-
-    posthog.capture(eventData);
 
     console.log("Add to audience response:", response);
     return response;
