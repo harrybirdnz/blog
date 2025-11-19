@@ -15,16 +15,6 @@ export async function POST({ request }) {
       );
     }
 
-    if (!audienceId) {
-      return json(
-        {
-          success: false,
-          error: "Audience ID is required",
-        },
-        { status: 400 }
-      );
-    }
-
     await addToAudience(email, audienceId);
     console.log(
       "Contact added successfully, waiting before sending thank you email..."
