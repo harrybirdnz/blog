@@ -1,7 +1,6 @@
 <script>
   import posthog from "posthog-js";
 
-  export let audienceId = "165a12f9-c83f-4c99-9a93-fbd89e9fdac8";
   export let title = "Subscribe to my newsletter";
   export let buttonText = "Subscribe";
 
@@ -20,7 +19,6 @@
 
     console.log("Submitting:", {
       email: submittedEmail,
-      audienceId,
     });
     try {
       const response = await fetch("/api/subscribe", {
@@ -30,7 +28,6 @@
         },
         body: JSON.stringify({
           email: submittedEmail,
-          audienceId,
         }),
       });
 
@@ -40,7 +37,6 @@
         // Track event in PostHog on client side (session ID included automatically)
         posthog.capture("new_subscriber", {
           email: submittedEmail,
-          audienceId: audienceId,
         });
 
         message = "Successfully subscribed! Check your email for confirmation.";

@@ -1,5 +1,5 @@
 import { Resend } from "resend";
-import { RESEND_API_KEY } from "$env/static/private";
+import { RESEND_API_KEY, RESEND_AUDIENCE_ID } from "$env/static/private";
 import { PostHog } from "posthog-node";
 
 const resend = new Resend(RESEND_API_KEY);
@@ -16,9 +16,8 @@ export async function sendTestEmail() {
   });
 }
 
-export async function addToAudience(email, audienceId) {
+export async function addToAudience(email) {
   try {
-    console.log("Adding to audience:", email, audienceId);
     let res = await resend.contacts.get({
       email: email,
     });
@@ -30,7 +29,7 @@ export async function addToAudience(email, audienceId) {
     const response = await resend.contacts.create({
       email,
       unsubscribed: false,
-      audienceId,
+      audienceId: RESEND_AUDIENCE_ID,
     });
 
     console.log("Add to audience response:", response);

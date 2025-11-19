@@ -2,8 +2,8 @@
 title: Introduction
 date: "2025-11-04"
 excerpt: '"Everyone should have a blog"'
-published: true
 ---
+
 ## Hello
 
 I am Harry, based in Wellington, New Zealand. I am creating this blog site so that I can practice my writing skills, particularly in response to the world around me.

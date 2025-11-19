@@ -1,6 +1,5 @@
 ---
 title: Human Networks
-published: true
 date: "2025-11-15"
 excerpt: The people around us have an incredible influence on the way that we live our lives, but how often do we consider the inverse effects that we have on them?
 ---

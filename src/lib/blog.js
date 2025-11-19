@@ -32,10 +32,6 @@ export async function getPosts() {
     const rawContent = postFiles[path];
     const slug = path.split("/").pop().replace(".md", "");
 
-    // Only include published posts (published defaults to false if not specified)
-    const published = post.metadata.published === true;
-    if (!published) continue;
-
     const firstImage = extractFirstImage(rawContent);
 
     posts.push({
