@@ -16,19 +16,19 @@
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^6.1.1",
-		"@sveltejs/kit": "^2.48.5",
+		"@sveltejs/kit": "^2.49.0",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
 		"@tailwindcss/vite": "^4.1.17",
 		"@types/node": "^22.19.1",
 		"mdsvex": "^0.12.6",
-		"svelte": "^5.43.6",
+		"svelte": "^5.43.15",
 		"tailwindcss": "^4.1.17",
-		"vite": "^7.2.2"
+		"vite": "^7.2.4"
 	},
 	"dependencies": {
-		"posthog-js": "^1.295.0",
-		"posthog-node": "^5.11.2",
-		"resend": "^6.5.0"
+		"posthog-js": "^1.298.0",
+		"posthog-node": "^5.14.0",
+		"resend": "^6.5.2"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
