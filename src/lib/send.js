@@ -1,11 +1,7 @@
 import { Resend } from "resend";
 import { RESEND_API_KEY, RESEND_AUDIENCE_ID } from "$env/static/private";
-import { PostHog } from "posthog-node";
 
 const resend = new Resend(RESEND_API_KEY);
-const posthog = new PostHog("phc_G9D50T5R9NiLHXIOkfzp3GqB8YkOVdR554ad2xIkgQm", {
-  host: "https://eu.i.posthog.com",
-});
 
 export async function sendTestEmail() {
   await resend.emails.send({
